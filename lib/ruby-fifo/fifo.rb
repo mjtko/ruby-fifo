@@ -25,7 +25,7 @@ class Fifo
             " or non-blocking respectively."
     end
 
-    if not $POSIX
+    if RUBY_PLATFORM =~ /mswin/
       include Win32
 
       mode  = mode  == :wait ? Pipe::WAIT : Pipe::NOWAIT
